@@ -1,6 +1,8 @@
 import socket, threading
 
-
+#Path to logfile
+LOGFILE = "CLIENTLOG.txt"
+#Message for user to send to disconnect from server
 DISCONNECT_MSG = "!DISCONNECT!"
 #Format to decode by
 FORMAT = 'utf-8'
@@ -30,7 +32,8 @@ def client_connection(conn,addr):
                 print(f"[{addr[0]}:{addr[1]}] Disconnected.")
                 conn.send("Disconnect Received. Goodbye!".encode(FORMAT))
             else:
-                print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")
+                print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")s
+                write_to_file(msg)
                 conn.send("Message Received".encode(FORMAT))
     conn.close() #Close connection
         
@@ -42,6 +45,10 @@ def start():
         thread = threading.Thread(target=client_connection,args=(conn,addr)) #Pass the connection to client_connection to a new thread
         thread.start() #Start new thread
         print(f"[SERVER] ACTIVE CONNECTIONS: {threading.activeCount() - 1}") #Print how many active connections there are
+
+def write_to_file(msg):
+    with open(LOGFILE,"a") as file:
+        file.write(msg + "\n")
 
 if __name__ == "__main__":
     print("[SERVER] Sever is starting...")
