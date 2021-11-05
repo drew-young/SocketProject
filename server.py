@@ -32,7 +32,7 @@ def client_connection(conn,addr):
                 print(f"[{addr[0]}:{addr[1]}] Disconnected.")
                 conn.send("Disconnect Received. Goodbye!".encode(FORMAT))
             else:
-                print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")s
+                print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")
                 write_to_file(msg)
                 conn.send("Message Received".encode(FORMAT))
     conn.close() #Close connection
