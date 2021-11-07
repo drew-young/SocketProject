@@ -1,4 +1,5 @@
 import socket, threading
+from datetime import datetime
 
 #Path to logfile
 LOGFILE = "CLIENTLOG.txt"
@@ -33,7 +34,7 @@ def client_connection(conn,addr):
                 conn.send("Disconnect Received. Goodbye!".encode(FORMAT))
             else:
                 print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")
-                write_to_file(msg)
+                write_to_file(msg,addr[0])
                 conn.send("Message Received".encode(FORMAT))
     conn.close() #Close connection
         
@@ -46,9 +47,11 @@ def start():
         thread.start() #Start new thread
         print(f"[SERVER] ACTIVE CONNECTIONS: {threading.activeCount() - 1}") #Print how many active connections there are
 
-def write_to_file(msg):
+def write_to_file(msg,sender):
+    hostname = socket.gethostname()
+    currentTime = datetime.now()
     with open(LOGFILE,"a") as file:
-        file.write(msg + "\n")
+        file.write(f"[{sender} @ {hostname} @ {currentTime}] - {msg} \n")
 
 if __name__ == "__main__":
     print("[SERVER] Sever is starting...")
