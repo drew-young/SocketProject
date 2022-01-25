@@ -13,7 +13,7 @@ HEADER = 64
 PORT = 10003
 #SERVER ADDRESS (can put ip address OR use socket to pull ip from hostname)
 # IP = socket.gethostbyname(socket.gethostname())
-IP = "127.0.0.1"
+IP = "129.21.86.61"
 #Turn IP and port into tuple to pass into socket
 ADDR = (IP,PORT)
 #initialize the socket with the family of AF_INET and SOCK_STREAM and bind it to an address
@@ -36,12 +36,20 @@ def client_connection(conn,addr):
                 print(f"[SERVER] ACTIVE CONNECTIONS: {threading.activeCount() - 2}") #Print how many active connections there are
                 
             else:
-                output = subprocess.run(msg, shell=True,capture_output=True,text=True) #run the command
-                # print(output.stdout)
-                print(f"[{addr[0]}:{addr[1]}] \"{msg}\"") #print the command that the user ran
-                write_to_file(msg,addr[0]) #write command to file
-                # conn.send("Message Received".encode(FORMAT)) 
-                conn.send(output.stdout.encode(FORMAT)) #send back the result
+                try:
+                    output = subprocess.run(msg, shell=True,capture_output=True,text=True,check=True) #run the command
+                    # print(output.stdout)
+                    print(f"[{addr[0]}:{addr[1]}] \"{msg}\"") #print the command that the user ran
+                    write_to_file(msg,addr[0]) #write command to file
+                    # conn.send("Message Received".encode(FORMAT)) 
+                    print(f"OUTPUT: {output}")
+                    if output.stdout == "":
+                        conn.send("Nothing to return.".encode(FORMAT))
+                        continue
+                    conn.send(output.stdout.encode(FORMAT)) #send back the result
+                except:
+                    conn.send("Try again!".encode(FORMAT))
+            conn.send("Next. \n".encode(FORMAT))
     conn.close() #Close connection
         
 def start():
