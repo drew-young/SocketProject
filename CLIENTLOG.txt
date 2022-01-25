@@ -14,3 +14,4 @@
 [127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:39.269958] - ls 
 [127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:46.577546] - cat README.md 
 [127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:59.895301] - ls 
+[127.0.0.1 @ Drew-PC @ 2022-01-25 14:18:14.205223] - ls 

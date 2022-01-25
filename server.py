@@ -36,13 +36,12 @@ def client_connection(conn,addr):
                 print(f"[SERVER] ACTIVE CONNECTIONS: {threading.activeCount() - 2}") #Print how many active connections there are
                 
             else:
-                print(msg)
-                output = subprocess.run(msg, shell=True,capture_output=True,text=True) 
-                print(output.stdout)
-                print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")
-                write_to_file(msg,addr[0])
-                conn.send("Message Received".encode(FORMAT))
-                conn.send(output.stdout.encode(FORMAT))
+                output = subprocess.run(msg, shell=True,capture_output=True,text=True) #run the command
+                # print(output.stdout)
+                print(f"[{addr[0]}:{addr[1]}] \"{msg}\"") #print the command that the user ran
+                write_to_file(msg,addr[0]) #write command to file
+                # conn.send("Message Received".encode(FORMAT)) 
+                conn.send(output.stdout.encode(FORMAT)) #send back the result
     conn.close() #Close connection
         
 def start():
