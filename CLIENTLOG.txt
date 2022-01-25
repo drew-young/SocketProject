@@ -1,0 +1,6 @@
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:42:16.364733] - Hello! 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:42:19.024442] - Testing still 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:42:21.554713] - this is so dope 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:42:23.634444] - ok bye 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:43:42.059001] - testing 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:43:44.111233] - ok bye 

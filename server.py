@@ -12,7 +12,8 @@ HEADER = 64
 #PORT TO HOST SERVER ON
 PORT = 10001
 #SERVER ADDRESS (can put ip address OR use socket to pull ip from hostname)
-IP = socket.gethostbyname(socket.gethostname())
+# IP = socket.gethostbyname(socket.gethostname())
+IP = "127.0.0.1"
 #Turn IP and port into tuple to pass into socket
 ADDR = (IP,PORT)
 #initialize the socket with the family of AF_INET and SOCK_STREAM and bind it to an address
@@ -32,6 +33,8 @@ def client_connection(conn,addr):
                 connected = False
                 print(f"[{addr[0]}:{addr[1]}] Disconnected.")
                 conn.send("Disconnect Received. Goodbye!".encode(FORMAT))
+                print(f"[SERVER] ACTIVE CONNECTIONS: {threading.activeCount() - 2}") #Print how many active connections there are
+                
             else:
                 print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")
                 write_to_file(msg,addr[0])

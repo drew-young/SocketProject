@@ -1,6 +1,6 @@
 import subprocess
 
-output = subprocess.run('echo "Hello"', shell=True,capture_output=True,text=True) 
+output = subprocess.run('ls', shell=True,capture_output=True,text=True) 
 # output = subprocess.run('echo "Hello"', shell=True,stdout=subprocess.PIPE,text=True) 
 '''
 Need to set shell=True for windows
