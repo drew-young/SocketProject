@@ -4,3 +4,13 @@
 [127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:42:23.634444] - ok bye 
 [127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:43:42.059001] - testing 
 [127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:43:44.111233] - ok bye 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:48:17.189867] - ls 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:48:50.520088] - ls 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:26.362572] - ls 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:29.320054] - cd .. 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:30.375325] - ls 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:34.415938] - cd ~ | ls 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:38.075717] - cd ~ 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:39.269958] - ls 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:46.577546] - cat README.md 
+[127.0.0.1 @ drews-mbp.wireless.rit.edu @ 2022-01-25 13:52:59.895301] - ls 
